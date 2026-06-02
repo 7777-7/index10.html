@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إجابات ASPIRE - نماذج استرشادية 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap');
+  :root {
+    --pink: #e91e8c;
+    --dark-pink: #c01570;
+    --green: #00c853;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(233,30,140,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: var(--white);
+    padding: 20px;
+    padding-bottom: 80px;
+  }
+  .hero {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, rgba(233,30,140,0.15), rgba(192,21,112,0.08));
+    border-radius: 20px;
+    border: 1px solid rgba(233,30,140,0.25);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(233,30,140,0.03) 0%, transparent 60%);
+    animation: pulse 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+  
+  .dev-badge-top {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .dev-badge-top span {
+    color: var(--pink);
+    font-weight: 700;
+  }
+
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(22px,5vw,40px);
+    font-weight: 900;
+    color: var(--white);
+    text-shadow: 0 0 20px rgba(233,30,140,0.6);
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--pink); }
+  .hero p { color: rgba(255,255,255,0.7); font-size: 15px; }
+  .stats-bar { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 16px 0 0; }
+  .stat {
+    background: rgba(233,30,140,0.15);
+    border: 1px solid rgba(233,30,140,0.3);
+    border-radius: 50px;
+    padding: 6px 16px; font-size: 13px; font-weight: 700; color: var(--pink);
+  }
+  
+  .controls {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 20px; margin-bottom: 20px;
+    display: flex; gap: 16px; flex-direction: row; align-items: flex-end; justify-content: space-between;
+  }
+  .control-group { display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  .control-group label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 600; }
+  .control-group select, .control-group input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(233,30,140,0.3);
+    border-radius: 10px; color: var(--white);
+    padding: 11px 14px; font-family: 'Cairo', sans-serif; font-size: 14px; outline: none;
+    width: 100%;
+  }
+  .control-group select:focus, .control-group input:focus { border-color: var(--pink); }
+  .control-group select option { background: #302b63; color: white; }
+  
+  .buttons-group {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end;
+  }
+  .btn-show {
+    background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+    border: none; border-radius: 10px; color: white;
+    padding: 11px 24px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--shadow); white-space: nowrap; min-height: 45px;
+  }
+  .btn-show:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(233,30,140,0.3); }
+  
+  .btn-all {
+    background: linear-gradient(135deg, #302b63, #24243e);
+    border: 1px solid rgba(233,30,140,0.5); border-radius: 10px; color: white;
+    padding: 11px 24px; font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap; min-height: 45px;
+  }
+  .btn-all:hover { transform: translateY(-2px); border-color: var(--pink); box-shadow: var(--shadow); }
+
+  .model-tabs { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px; }
+  .tab-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; color: rgba(255,255,255,0.6);
+    padding: 6px 12px; font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+  }
+  .tab-btn:hover { background: rgba(233,30,140,0.15); border-color: var(--pink); color: white; }
+  .tab-btn.active {
+    background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+    border-color: var(--pink); color: white; box-shadow: 0 3px 12px rgba(233,30,140,0.3);
+  }
+  
+  .results-area { display: none; }
+  .results-area.visible { display: block; }
+  
+  .model-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 12px;
+  }
+  .model-title {
+    font-size: 20px; font-weight: 900; color: var(--pink);
+    text-shadow: 0 0 15px rgba(233,30,140,0.4); margin-bottom: 0;
+  }
+  .btn-toggle-all {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(233, 30, 140, 0.4);
+    color: white; padding: 6px 14px; border-radius: 8px;
+    font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .btn-toggle-all:hover { background: var(--pink); border-color: var(--pink); box-shadow: var(--shadow); }
+
+  .questions-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 11px;
+  }
+  
+  .q-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 13px; padding: 13px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    content-visibility: auto;
+    contain-intrinsic-size: 140px;
+  }
+  .q-card:hover { border-color: rgba(233,30,140,0.4); background: rgba(233,30,140,0.04); }
+  .q-header { display: flex; align-items: center; gap: 9px; margin-bottom: 7px; }
+  .q-num {
+    background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+    border-radius: 7px; color: white; font-weight: 900; font-size: 13px;
+    min-width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .model-badge-inline {
+    font-size: 11px; color: rgba(255,200,120,0.8); margin-right: 4px; font-weight: 600;
+  }
+  .q-answer { display: flex; align-items: center; gap: 6px; margin-bottom: 8px;}
+  .answer-badge {
+    background: rgba(0,200,83,0.15); border: 1px solid rgba(0,200,83,0.4);
+    border-radius: 6px; color: var(--green); font-weight: 900; font-size: 15px; padding: 2px 10px;
+  }
+  .answer-text { color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 600; flex: 1; line-height: 1.4; }
+  
+  .btn-analysis {
+    background: rgba(253, 233, 242, 0.04);
+    border: 1px dashed rgba(233, 30, 140, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-analysis:hover {
+    background: rgba(233, 30, 140, 0.12);
+    border-color: var(--pink);
+    color: #fff;
+  }
+  .btn-analysis.active {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .q-reason {
+    display: none;
+    font-size: 12px; color: #ffca50; margin-top: 10px; padding-top: 8px;
+    border-top: 1px dashed rgba(255,255,255,0.08); line-height: 1.6;
+  }
+  .q-reason::before { content: '💡 السبب: '; color: var(--pink); font-weight: 700; }
+  
+  .no-results { text-align: center; padding: 40px; color: rgba(255,255,255,0.4); font-size: 18px; grid-column: 1 / -1; }
+  footer {
+    text-align: center; margin-top: 40px; padding: 20px;
+    color: rgba(255,255,255,0.3); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer span { color: var(--pink); font-weight: 700; }
+  
+  .floating-contacts {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+  }
+  .social-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+    color: #fff;
+    text-decoration: none;
+  }
+  .social-circle:hover {
+    transform: scale(1.1) translateY(-3px);
+  }
+  .whatsapp-btn { background-color: #25D366; }
+  .telegram-btn { background-color: #0088cc; }
+  .social-circle svg { width: 24px; height: 24px; fill: currentColor; }
+
+  @media (max-width: 650px) { 
+    .questions-grid { grid-template-columns: 1fr; } 
+    .controls { flex-direction: column; align-items: stretch; gap: 12px; } 
+    .buttons-group { width: 100%; flex-direction: column; align-self: stretch; gap: 8px; }
+    .model-title-container { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="dev-badge-top">✨ تم التطوير بواسطة <span>Basel Basuony</span> ✨</div>
+  <h1>ASPIRE <span>in English</span> ★ 2026</h1>
+  <p>إجابات النماذج الاسترشادية — ثالثة ثانوي — مع سبب الاختيار</p>
+  <div class="stats-bar">
+    <div class="stat">🎯 10 نماذج</div>
+    <div class="stat">📝 39 سؤال لكل نموذج</div>
+    <div class="stat">✅ 390 إجابة</div>
+    <div class="stat">💡 سبب الاختيار بالعربي</div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="control-group">
+    <label for="modelSelect">اختر النموذج</label>
+    <select id="modelSelect">
+      <option value="all">كل النماذج</option>
+      <option value="1">النموذج الأول</option>
+      <option value="2">النموذج الثاني</option>
+      <option value="3">النموذج الثالث</option>
+      <option value="4">النموذج الرابع</option>
+      <option value="5">النموذج الخامس</option>
+      <option value="6">النموذج السادس</option>
+      <option value="7">النموذج السابع</option>
+      <option value="8">النموذج الثامن</option>
+      <option value="9">النموذج التاسع</option>
+      <option value="10">النموذج العاشر</option>
+    </select>
+  </div>
+  <div class="control-group">
+    <label for="qSearch">ابحث برقم السؤال</label>
+    <input type="number" id="qSearch" placeholder="مثال: 5" min="1" max="39">
+  </div>
+  <div class="buttons-group">
+    <button class="btn-show" onclick="showAnswers()">📖 عرض النتيجة</button>
+    <button class="btn-all" onclick="showAllModelAnswers()">📋 عرض النموذج كاملاً</button>
+  </div>
+</div>
+
+<div class="model-tabs" id="modelTabs"></div>
+
+<div class="results-area" id="resultsArea">
+  <div class="model-title-container">
+    <div class="model-title" id="modelTitle"></div>
+    <button id="toggleAllReasonsBtn" class="btn-toggle-all" onclick="toggleAllReasons()">👁️ إظهار كل التفسيرات</button>
+  </div>
+  <div class="questions-grid" id="questionsGrid"></div>
+</div>
+
+<div class="floating-contacts">
+  <a href="https://wa.me/201008757656" target="_blank" class="social-circle whatsapp-btn" title="تواصل معنا عبر واتساب">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66 1.01 3.226 1.594 5.355 1.594 5.394 0 9.774-4.388 9.777-9.793.002-2.618-1.017-5.083-2.872-6.938C16.96 2.162 14.5 1.141 12.007 1.141c-5.398 0-9.78 4.39-9.782 9.796-.001 2.18.574 3.73 1.648 5.393l-.999 3.651 3.773-.987zM16.5 14.12c-.27-.135-1.59-.785-1.84-.874-.24-.09-.42-.135-.6.135-.17.27-.675.875-.825 1.05-.15.17-.3.195-.57.06-2.52-1.095-4.11-2.43-5.04-4.05-.24-.42-.03-.645.18-.855.19-.19.42-.495.63-.742.21-.24.27-.42.42-.69.15-.27.075-.51-.03-.742-.105-.24-.6-.1.84-1.455-.24-.465-.45-.39-.6-.39H8.19c-.21 0-.555.075-.84.39-.285.315-1.095 1.065-1.095 2.61 0 1.545 1.125 3.045 1.275 3.255.15.21 2.205 3.375 5.34 4.725.745.32 1.33.515 1.785.66.75.24 1.43.205 1.97.125.6-.09 1.59-.65 1.815-1.25.225-.6.225-1.11.15-1.22-.075-.11-.27-.195-.54-.33z"/></svg>
+  </a>
+  <a href="https://t.me/BASEL01" target="_blank" class="social-circle telegram-btn" title="تابعنا على تليجرام">
+    <svg viewBox="0 0 24 24"><path d="M11.944 0C5.344 0 0 5.344 0 11.944c0 5.6 3.844 10.3 9.1 11.631.131.025.244-.038.244-.169v-1.763c-.006-.056-.025-.131-.069-.175l-.019-.019c-.063-.063-.169-.081-.25-.05-1.088.394-1.938.162-2.456-.569-.369-.519-.519-1.244-.812-1.744-.181-.313-.45-.488-.475-.513-.038-.038-.019-.063.031-.063.35.031.788.425.994.731.331.5.769.838 1.344.838.419 0 .756-.081 1.006-.213.113-.6.356-1.006.625-1.238-2.313-.263-4.744-1.156-4.744-5.15 0-1.138.406-2.069 1.075-2.8 0-.263-.469-1.325.1-2.763 0 0 .875-.281 2.875 1.069a9.816 9.816 0 012.563-.344c.869.006 1.744.119 2.569.344 1.994-1.35 2.869-1.069 2.869-1.069.569 1.438.1 2.5.1 2.763.675.731 1.075 1.662 1.075 2.8 0 4.006-2.438 4.881-4.756 5.144.375.325.713.956.713 1.931v2.863c0 .131.113.194.244.169 5.25-1.338 9.094-6.031 9.094-11.631C23.888 5.344 18.544 0 11.944 0z"/></svg>
+  </a>
+</div>
+
+<footer>✨ تم التطوير بواسطة <span>Basel Basuony</span> ✨ — ASPIRE in English 2026</footer>
+
+<script>
+const models = {
+  1: [
+    {q:1,ans:"d",text:"marginalized",reason:"مجموعات تفتقر إلى فرص متكافئة = مهمشة marginalized"},
+    {q:2,ans:"c",text:"underestimate",reason:"لا تقلل من صعوبة الامتحان = underestimate (لا تستهن)"},
+    {q:3,ans:"a",text:"overcast",reason:"لا نرى الشمس = السماء ملبدة بالغيوم = overcast"},
+    {q:4,ans:"b",text:"moan",reason:"الطفل الجائع يئن = moan (يئن بصوت)"},
+    {q:5,ans:"a",text:"hatching",reason:"الكتاكيت تفقس من البيض = hatching"},
+    {q:6,ans:"a",text:"produce",reason:"السيارات تنتج انبعاثات = produce (ينتج)"},
+    {q:7,ans:"d",text:"raining",reason:"raining cats and dogs = تعبير ثابت يعني تمطر بغزارة"},
+    {q:8,ans:"c",text:"were having",reason:"at 8 p.m. + فعل مستمر في الماضي = past continuous"},
+    {q:9,ans:"c",text:"the",reason:"University of Oxford جامعة بعينها = the"},
+    {q:10,ans:"a",text:"She said that she was tired.",reason:"I am → she was في الكلام المنقول (مضارع → ماضٍ)"},
+    {q:11,ans:"a",text:"locking",reason:"remember + not + gerund (ing) = not locking"},
+    {q:12,ans:"b",text:"The narrator's holiday took an unexpected turn.",reason:"الفكرة الرئيسية: إجازة تحولت لاتجاه غير متوقع"},
+    {q:13,ans:"c",text:"Outside the restaurant",reason:"النص: الرجل جلس على طاولة خارجية"},
+    {q:14,ans:"b",text:"The village mysterious man",reason:"صاحب المطعم قال: that must be Mahmoud, the village mysterious man"},
+    {q:15,ans:"a",text:"The narrator met an old man who accurately told him about his past...",reason:"الجزء الأوسط: لقاء الرجل وكشفه عن الماضي بدقة"},
+    {q:16,ans:"c",text:"he revealed the narrator's past",reason:"الكشف الدقيق عن الماضي غيّر رأي الراوي"},
+    {q:17,ans:"b",text:"excited but shocked",reason:"متحمس لكنه صُدم من دقة المعلومات"},
+    {q:18,ans:"b",text:"disbelief to surprise",reason:"من عدم التصديق إلى الدهشة"},
+    {q:19,ans:"a",text:"He didn't want Mr. Hassan to see him.",reason:"الرجل اختفى قبل عودة صاحب المطعم = لم يرد أن يُرى"},
+    {q:20,ans:"b",text:"can replace fossil fuels in a sustainable way",reason:"الفكرة الرئيسية: الطاقة المتجددة بديل مستدام"},
+    {q:21,ans:"b",text:"Recognize how serious it is and take action to stop it.",reason:"الكاتب يؤكد خطورة استنزاف الموارد ويشجع على العمل"},
+    {q:22,ans:"c",text:"Solar power",reason:"Solar panels تحول ضوء الشمس إلى كهرباء"},
+    {q:23,ans:"a",text:"It depends on weather conditions",reason:"النص: Solar and wind power depend on weather conditions"},
+    {q:24,ans:"d",text:"informative",reason:"النص يقدم معلومات موضوعية = informative"},
+    {q:25,ans:"b",text:"It will likely continue to grow",reason:"تزايد الاستثمار يدل على نمو مستمر"},
+    {q:26,ans:"b",text:"Iceland",reason:"النص: countries such as Iceland and New Zealand"},
+    {q:27,ans:"a",text:"It explains how solar and wind energy convert natural resources...",reason:"الفقرة الثانية تشرح الطاقة الشمسية وطاقة الرياح"},
+    {q:28,ans:"d",text:"watched → were watching",reason:"While + past continuous للحدث المستمر الذي قُطع"},
+    {q:29,ans:"a",text:"Many students who studied hard passed the exam.",reason:"Gملة الوصفية التقييدية لا تحتاج فواصل"},
+    {q:30,ans:"c",text:"The book that you gave me is interesting.",reason:"that you gave me = جملة وصفية relative clause"},
+    {q:31,ans:"b",text:"She said that if she had known he was coming, she would have prepared...",reason:"Third conditional في الكلام المنقول يبقى كما هو"},
+    {q:32,ans:"c",text:"I was cooking when the lights went out.",reason:"Past continuous + Simple past = حدث مستمر قُطع بحدث آخر"},
+    {q:33,ans:"b",text:"Running through the park, I saw the rain starting to fall.",reason:"فاعل الجملة (I) يجب أن يكون فاعل الـ participle"},
+    {q:34,ans:"d",text:"Emphatic",reason:"does للتوكيد في الجملة الخبرية = emphatic do"},
+    {q:35,ans:"b",text:"Someone else checked the report for the manager.",reason:"had the report checked = causative = شخص آخر قام بالتحقق"},
+    {q:36,ans:"a",text:"الترجمة أ",reason:"يمكنه + لن يحل محل الإبداع البشري + هل سيثبت المستقبل"},
+    {q:37,ans:"a",text:"الترجمة أ",reason:"يوفر مرونة كبيرة + يتطلب انضباطاً ذاتياً + إدارة الوقت"},
+    {q:38,ans:"a",text:"الترجمة أ",reason:"رغم التقدم العلمي + أسرار الكون + برمودا + الثقوب السوداء"},
+    {q:39,ans:"a",text:"الترجمة أ",reason:"Although technology + less time than ever + poor time management"}
+  ],
+  2: [
+    {q:1,ans:"d",text:"challenges",reason:"تواجِه الحكومة التحديات posed by = challenges (جمع challenge)"},
+    {q:2,ans:"b",text:"diagnose",reason:"troubleshoot = تشخيص مشكلة = diagnose"},
+    {q:3,ans:"d",text:"profound",reason:"آثار عميقة للتغيرات المناخية = profound"},
+    {q:4,ans:"a",text:"implementation",reason:"تنفيذ المشروع = implementation (تطبيق)"},
+    {q:5,ans:"c",text:"hints",reason:"implications = تلميحات ضمنية = hints"},
+    {q:6,ans:"c",text:"entangled",reason:"متورطاً في مشاكل = entangled (متشابك)"},
+    {q:7,ans:"d",text:"turn a blind eye",reason:"تجاهلت الخطأ = غضت الطرف = turn a blind eye"},
+    {q:8,ans:"a",text:"invest",reason:"المستثمر الذكي يستثمر في الابتكارات = invest"},
+    {q:9,ans:"a",text:"has prepared",reason:"النتيجة الحالية الظاهرة = present perfect has prepared"},
+    {q:10,ans:"b",text:"had to",reason:"ordered = أمر = إلزام = had to (كان يجب)"},
+    {q:11,ans:"c",text:"typed",reason:"get + object + past participle = causative"},
+    {q:12,ans:"b",text:"A life lost, a lesson learned",reason:"درس تعلم من وفاة"},
+    {q:13,ans:"c",text:"a pedestrian stepped into the road suddenly",reason:"النص: a pedestrian stepped off the pavement"},
+    {q:14,ans:"c",text:"Drivers should use signals and warnings...",reason:"الفقرة الأخيرة تتحدث عن الإشارات والتحذيرات"},
+    {q:15,ans:"c",text:"one casualty and a ruined vehicle",reason:"التقرير: One person killed, one car damaged"},
+    {q:16,ans:"a",text:"drivers had followed the three basic safety rules",reason:"could have been avoided if people had followed three simple rules"},
+    {q:17,ans:"d",text:"the less control he will have over the car",reason:"كلما زاد التشتيت كلما قل التحكم"},
+    {q:18,ans:"c",text:"were not paying enough attention to the road",reason:"كلاهما لم ينتبه: السائق والمشاة"},
+    {q:19,ans:"b",text:"painful",reason:"أثر الدم مشهد مؤلم = painful"},
+    {q:20,ans:"c",text:"experiencing a different theatre show makes one feel as being part of the incidents.",reason:"تجربة المسرحية تجعلك جزءاً منها"},
+    {q:21,ans:"c",text:"aroused everyone's joy and laughter",reason:"We all laughed عندما اقترحت دينا"},
+    {q:22,ans:"a",text:"Hani knew the plot of the play and didn't try to spoil it...",reason:"هاني عرف المؤامرة ولم يكشفها رغم الموقف المحرج"},
+    {q:23,ans:"b",text:"acting a role in the play",reason:"الرجل في الممر كان ممثلاً"},
+    {q:24,ans:"b",text:"the play would have been ruined",reason:"كشف السر = إفساد الحبكة الدرامية"},
+    {q:25,ans:"d",text:"stop interference while watching",reason:"بعد هذا الموقف المحرج سيتوقف عن التدخل"},
+    {q:26,ans:"a",text:"went on performing for the audience",reason:"الممثل تجاهل هاني واستمر في أداء دوره"},
+    {q:27,ans:"b",text:"embarrassing situations teach us something",reason:"الموقف المحرج علّم هاني درساً"},
+    {q:28,ans:"a",text:"what I had done",reason:"كلام منقول: what have I done → what I had done"},
+    {q:29,ans:"d",text:"get it made for you",reason:"get + object + past participle = causative"},
+    {q:30,ans:"c",text:"Ali, my best friend, is thirty years old.",reason:"التعريف الإضافي بفاصلتين + years old صحيح"},
+    {q:31,ans:"b",text:"was admired by",reason:"التمثال = passive: was admired by"},
+    {q:32,ans:"b",text:"give casual greetings",reason:"في البريد الرسمي لا تستخدم تحيات غير رسمية"},
+    {q:33,ans:"b",text:"Must you",reason:"Must you = تعبير عن ضرورة أو تذمر"},
+    {q:34,ans:"d",text:"anyone to violate the law",reason:"allow + object + to infinitive"},
+    {q:35,ans:"c",text:"must have been",reason:"التحقق من أن الجميع دُفنوا = must have been (استنتاج ماضٍ)"},
+    {q:36,ans:"b",text:"الترجمة ب",reason:"يستكشف + أسرار الكون + لم يستطع مقاومة رغبته في الاكتشاف"},
+    {q:37,ans:"a",text:"الترجمة أ",reason:"يقال أن + النقل البري + اختراع العجلة + قبل ذلك كان يسير"},
+    {q:38,ans:"a",text:"الترجمة أ",reason:"organization + designed + variety of + looking closely + patients"},
+    {q:39,ans:"a",text:"الترجمة أ",reason:"joining university + independent + different experience + passion"}
+  ],
+  3: [
+    {q:1,ans:"c",text:"Phenomenon",reason:"شيء يُدرَك بالحواس وغير مفسّر = phenomenon (ظاهرة)"},
+    {q:2,ans:"b",text:"focused",reason:"عكس marginalized (مهمش) = focused (محوري)"},
+    {q:3,ans:"d",text:"disruption",reason:"مرادف chaos (فوضى) = disruption (اضطراب)"},
+    {q:4,ans:"b",text:"check",reason:"التحقق من وقت الإقلاع = check"},
+    {q:5,ans:"a",text:"repetitive",reason:"نفس المهام كل يوم = repetitive (متكرر)"},
+    {q:6,ans:"c",text:"curious",reason:"أطفال يحيطون = curious (فضوليون)"},
+    {q:7,ans:"c",text:"face the music",reason:"يواجه عواقب تغيبه = face the music"},
+    {q:8,ans:"d",text:"weeknight",reason:"المطعم أقل ازدحاماً في ليالي الأسبوع"},
+    {q:9,ans:"c",text:"have been waiting",reason:"مدة طويلة = present perfect continuous"},
+    {q:10,ans:"a",text:"themselves",reason:"engineers ضمير جمع = themselves"},
+    {q:11,ans:"c",text:"so that",reason:"الهدف = so that (حتى لا تفقد)"},
+    {q:12,ans:"a",text:"Balancing Progress with Preservation",reason:"التوازن بين التقدم والحفاظ على التراث"},
+    {q:13,ans:"b",text:"federal legislation",reason:"النص: The absence of federal legislation...has created a legal vacuum"},
+    {q:14,ans:"b",text:"Indigenous communities protested to protect sacred lands...",reason:"المجتمعات الأصلية احتجت ضد السد وغياب الحماية"},
+    {q:15,ans:"d",text:"sacred sites being threatened by development",reason:"المشكلة الرئيسية: تهديد المواقع المقدسة بالتطوير"},
+    {q:16,ans:"b",text:"make heritage preservation clearer and stronger",reason:"التشريع الفيدرالي سيقوي الحماية"},
+    {q:17,ans:"c",text:"a mix of ancient artistry and modern engineering",reason:"إعادة نقل أبو سمبل = فن قديم بهندسة حديثة"},
+    {q:18,ans:"a",text:"avoiding exploitation while preserving cultural values",reason:"تحدي الصين: الحفاظ على القيم دون استغلال تجاري"},
+    {q:19,ans:"b",text:"used modern engineering to save a threatened monument, while Canada...",reason:"مصر استخدمت الهندسة الحديثة، كندا تعاني من غياب القوانين"},
+    {q:20,ans:"b",text:"One Moment of Compassion",reason:"لحظة تعاطف واحدة غيّرت يوماً"},
+    {q:21,ans:"a",text:"Anya helps Mr. Patel unpack his groceries and feels happy...",reason:"الفقرة الثالثة: وصول آنيا وإلغاء البقالة والشعور بالرضا"},
+    {q:22,ans:"a",text:"Anya is in a hurry, while Mr. Patel moves slowly and seems tired.",reason:"آنيا في زحام وباتيل خطواته بطيئة"},
+    {q:23,ans:"a",text:"it was too heavy and he was unsteady",reason:"الأكياس ثقيلة وخطواته غير ثابتة"},
+    {q:24,ans:"c",text:"To be more present, observant, and willing to help other people around.",reason:"قررت أن تكون أكثر حضوراً وانتباهاً"},
+    {q:25,ans:"b",text:"gentle spirit and quiet resilience",reason:"النص: moved by his gentle spirit and quiet resilience"},
+    {q:26,ans:"d",text:"fulfillment",reason:"مساعدة الآخرين = إحساس بالإنجاز = fulfillment"},
+    {q:27,ans:"b",text:"compassionate and meaningful",reason:"تصرفاتها كانت متعاطفة وذات معنى"},
+    {q:28,ans:"c",text:"not to forget",reason:"remind + object + not to + infinitive"},
+    {q:29,ans:"d",text:"be",reason:"insist that + subject + base verb (subjunctive) = be"},
+    {q:30,ans:"b",text:"Feeling",reason:"Feeling exhausted = participial phrase لوصف الحالة"},
+    {q:31,ans:"d",text:"must be closed",reason:"الأضواء مطفأة والباب مقفل = must be closed (استنتاج حاضر)"},
+    {q:32,ans:"b",text:"boring",reason:"boring = يسبب الملل (الفيلم) لأن I كنت أنام"},
+    {q:33,ans:"d",text:"They live in a three-bedroom apartment.",reason:"صفة مركبة قبل الاسم = three-bedroom (بواصلة ومفردة)"},
+    {q:34,ans:"a",text:'"Are you coming to the party?" she asked.',reason:"علامة الاستفهام قبل علامة التنصيص، she بحرف صغير"},
+    {q:35,ans:"a",text:"persuasive",reason:"إقناع القارئ بأدلة وأسباب = persuasive essay"},
+    {q:36,ans:"b",text:"الترجمة ب",reason:"بانتقائية + تُناسب اهتماماتهم + تفضيلاتنا الشخصية وفضولنا"},
+    {q:37,ans:"d",text:"الترجمة د",reason:"تشير + واسعة النطاق + العقود القادمة + ضغوطاً متزايدة"},
+    {q:38,ans:"c",text:"الترجمة ج",reason:"have tried + weather + significantly greater accuracy = صحيح"},
+    {q:39,ans:"c",text:"الترجمة ج",reason:"formal situations + title and last name + invite you to + well acquainted"}
+  ],
+  4: [
+    {q:1,ans:"b",text:"symptom",reason:"خبرة ذاتية مثل الألم تدل على مرض = symptom (عرَض)"},
+    {q:2,ans:"d",text:"kicks",reason:"kick off the day = يبدأ اليوم بنشاط (تعبير ثابت)"},
+    {q:3,ans:"c",text:"rejecting",reason:"عكس embracing (يتبنى) = rejecting (يرفض)"},
+    {q:4,ans:"d",text:"enhance",reason:"زيادة الإنتاجية = enhance (يعزز)"},
+    {q:5,ans:"a",text:"sprang into action",reason:"عند وصول المصابين، الأطباء تحركوا فوراً"},
+    {q:6,ans:"d",text:"era",reason:"قبل العصر الحديث = era (حقبة)"},
+    {q:7,ans:"d",text:"exposed",reason:"مرادف vulnerable (عرضة للخطر) = exposed"},
+    {q:8,ans:"a",text:"insightful",reason:"حكمة وآراء جدنا = insightful (ثاقب)"},
+    {q:9,ans:"b",text:"hasn't been",reason:"hasn't been included (present perfect للحاضر)"},
+    {q:10,ans:"a",text:"was",reason:"الخبر كان واعداً = was (ماضٍ مفرد)"},
+    {q:11,ans:"a",text:"since",reason:"since + نقطة زمنية في الماضي"},
+    {q:12,ans:"b",text:"Karim's hard work and perseverance led to success",reason:"العمل الجاد والمثابرة يقودان للنجاح"},
+    {q:13,ans:"b",text:"poverty",reason:"كريم حاول التغلب على الفقر"},
+    {q:14,ans:"d",text:"Karim's success shows that determination and self-belief lead to achievement.",reason:"النجاح بالتحديد والإيمان بالذات"},
+    {q:15,ans:"c",text:"When he received a full scholarship to university.",reason:"المنحة الدراسية نقطة التحول"},
+    {q:16,ans:"c",text:"is determined, and hardworking",reason:"يمكن الاستنتاج أن كريم مثابر وجاد"},
+    {q:17,ans:"b",text:"Continue helping and inspiring other students.",reason:"كريم يُرشد الطلاب الآن فسيستمر"},
+    {q:18,ans:"b",text:"He was poor and later became a successful engineer.",reason:"من فقير إلى مهندس ناجح"},
+    {q:19,ans:"b",text:"confident and proud",reason:"بعد تخرجه بمرتبة الشرف أصبح واثقاً وفخوراً"},
+    {q:20,ans:"c",text:"there are many ways to explain the fact that health care is one of main pillars...",reason:"الرعاية الصحية ركيزة المجتمع"},
+    {q:21,ans:"b",text:"has made diagnosis and treatment faster, easier and more accurate",reason:"التكنولوجيا حولت طريقة التشخيص والعلاج"},
+    {q:22,ans:"c",text:"Governments around the world should invest in health care...",reason:"آخر فقرة: على الحكومات الاستثمار في الصحة"},
+    {q:23,ans:"c",text:"explaining that everyone deserves access to health services regardless of income...",reason:"not a luxury; it is a human right = حق للجميع"},
+    {q:24,ans:"b",text:"The writer believes inequality in health care still exists across the world.",reason:"يستنتج من ذكر المشاكل في الدول النامية"},
+    {q:25,ans:"c",text:"The quality of life will decline, and diseases will spread more widely.",reason:"بدون استثمار في الصحة، جودة الحياة ستتراجع"},
+    {q:26,ans:"b",text:"Modern health care uses advanced technology, unlike the past.",reason:"الرعاية الحديثة تستخدم AI والطب عن بعد"},
+    {q:27,ans:"b",text:"The writer conveys hopefulness and moral commitment toward improving global health.",reason:"الكاتب متفائل وملتزم أخلاقياً"},
+    {q:28,ans:"d",text:"Had he presented",reason:"Third conditional: Had + past perfect"},
+    {q:29,ans:"a",text:"Had you had",reason:"Past perfect question: Had you had your laptop repaired?"},
+    {q:30,ans:"b",text:"am reading",reason:"كلام مباشر للمضارع المستمر = am reading"},
+    {q:31,ans:"c",text:"won't",reason:"won't take = لن آخذ (مستقبل منفي)"},
+    {q:32,ans:"d",text:"ought to",reason:"ought to have reminded = كان يجب أن نذكره"},
+    {q:33,ans:"a",text:"supports",reason:"Walid, as well as = الفاعل الحقيقي Walid مفرد = supports"},
+    {q:34,ans:"c",text:"shouldn't have eaten",reason:"I regret = لم يكن يجب = shouldn't have eaten"},
+    {q:35,ans:"d",text:"However, ……",reason:"However = للتناقض والمعارضة"},
+    {q:36,ans:"b",text:"الترجمة ب",reason:"الإيثار + التضحية + مساعدة الآخرين + انكار الذات"},
+    {q:37,ans:"c",text:"الترجمة ج",reason:"الطبيعة هبة تبعث السلام + جبالها وأنهارها + حماية مستقبلنا"},
+    {q:38,ans:"b",text:"الترجمة ب",reason:"person's life + clearly defines his priorities + necessary matters"},
+    {q:39,ans:"d",text:"الترجمة د",reason:"confidence and strength + right decisions + overcome + avoid making mistakes"}
+  ],
+  5: [
+    {q:1,ans:"c",text:"resilience",reason:"إعادة البناء بأمل = resilience (مرونة/صمود)"},
+    {q:2,ans:"a",text:"understate",reason:"عكس emphasize (يؤكد) = understate (يُقلل)"},
+    {q:3,ans:"a",text:"enforce",reason:"مرادف implement (ينفذ) = enforce"},
+    {q:4,ans:"d",text:"rehearsal",reason:"الممثلون يتدربون = rehearsal (بروفة)"},
+    {q:5,ans:"c",text:"phenomenon",reason:"ظاهرة طبيعية غريبة = phenomenon"},
+    {q:6,ans:"b",text:"overwhelming",reason:"مهمة صعبة جداً = overwhelming (ساحقة)"},
+    {q:7,ans:"b",text:"reputation",reason:"سمعة قوية = reputation"},
+    {q:8,ans:"c",text:"argue",reason:"في نقاش يجب تقديم حجة = argue"},
+    {q:9,ans:"c",text:"an",reason:"SMS يبدأ بصوت إس (S) ساكن = an"},
+    {q:10,ans:"a",text:"should",reason:"should have used = كان يجب استخدام GPS (تقصير)"},
+    {q:11,ans:"d",text:"ever",reason:"haven't ever = never (لم يذهبوا أبداً)"},
+    {q:12,ans:"b",text:"helping others brings happiness and meaning to life",reason:"مساعدة الآخرين تجلِب السعادة"},
+    {q:13,ans:"c",text:"on a quiet Saturday afternoon",reason:"النص: It was a quiet Saturday afternoon"},
+    {q:14,ans:"a",text:"she found a bird, cared for it until it healed, and learned the joy of kindness",reason:"وجدت طيراً رعته وتعلمت التعاطف"},
+    {q:15,ans:"c",text:"The appearance of the injured bird",reason:"ظهور الطير الجريح غيّر يوم ليلى"},
+    {q:16,ans:"b",text:"She will face difficulties with patience, care, and responsibility.",reason:"بناءً على تصرفها ستواجه التحديات بصبر"},
+    {q:17,ans:"b",text:"kind and compassionate",reason:"ليلى طيبة ومتعاطفة"},
+    {q:18,ans:"a",text:"ignored the sound but later helped the bird.",reason:"تجاهلت الصوت أولاً ثم تصرفت"},
+    {q:19,ans:"b",text:"moved from feeling isolated to feeling fulfilled through compassion and connection",reason:"من عزلة الدراسة إلى رضا التعاطف"},
+    {q:20,ans:"c",text:"are changing the way people live and work",reason:"الآلات الآلية تغير طريقة الحياة والعمل"},
+    {q:21,ans:"b",text:"second",reason:"الزراعة مذكورة في الفقرة الثانية"},
+    {q:22,ans:"a",text:"providing examples from different fields",reason:"الفكرة طُورت بأمثلة من مجالات مختلفة"},
+    {q:23,ans:"b",text:"supports automation but sees its challenges",reason:"الكاتب يرى الإيجابيات والتحديات معاً"},
+    {q:24,ans:"c",text:"societies will need to adapt to new types of jobs",reason:"إذا استمرت الأتمتة، المجتمعات ستتكيف"},
+    {q:25,ans:"b",text:"Some fear job loss while others believe automation creates new jobs.",reason:"حجتان متعارضتان حول فرص العمل"},
+    {q:26,ans:"a",text:"Automation improves efficiency but requires careful management",reason:"تحسن الكفاءة لكن تحتاج إدارة"},
+    {q:27,ans:"b",text:"are described as balanced both hopeful and cautious",reason:"مواقف الناس بين الأمل والحذر"},
+    {q:28,ans:"d",text:"had been",reason:"Third conditional: If you had been asked"},
+    {q:29,ans:"c",text:"was getting his car serviced",reason:"Causative: was getting + car + serviced"},
+    {q:30,ans:"d",text:"will have been",reason:"Future perfect passive: will have been changed"},
+    {q:31,ans:"b",text:"since",reason:"since + نقطة زمنية = coming back from America"},
+    {q:32,ans:"c",text:"saw",reason:"last time = ماضٍ بسيط = saw"},
+    {q:33,ans:"d",text:"which",reason:"yesterday + played = non-defining relative clause = which"},
+    {q:34,ans:"b",text:"on being seen",reason:"insist on + gerund + passive = on being seen"},
+    {q:35,ans:"d",text:"Salah, who's the happiness maker, scored the winning goal.",reason:"Non-defining relative clause بفاصلتين + scored صحيح"},
+    {q:36,ans:"a",text:"الترجمة أ",reason:"يُقال إن + قبول الآخرين + مهذبة + يمكنك مشاركة رأيك"},
+    {q:37,ans:"b",text:"الترجمة ب",reason:"الاحتباس الحراري + ليس مستقبلياً فقط + آلاف الوفيات كل عام"},
+    {q:38,ans:"c",text:"الترجمة ج",reason:"believe + practice sports + positive effects + modification of aggressive behavior"},
+    {q:39,ans:"a",text:"الترجمة أ",reason:"not only changed + but also helped enhance + save time + reduce reliance"}
+  ],
+  6: [
+    {q:1,ans:"a",text:"beneficial",reason:"نظام غذائي متوازن مفيد = beneficial"},
+    {q:2,ans:"d",text:"household",reason:"منتجات التنظيف = household products (منزلية)"},
+    {q:3,ans:"b",text:"mortifying",reason:"موقف محرج جداً = mortifying"},
+    {q:4,ans:"a",text:"dynasty",reason:"حقبة يابانية قديمة = dynasty (أسرة حاكمة)"},
+    {q:5,ans:"b",text:"sudden pain",reason:"a stitch in my side = ألم مفاجئ في الجانب"},
+    {q:6,ans:"c",text:"maintain",reason:"الحفاظ على الصداقات = maintain"},
+    {q:7,ans:"b",text:"bear the brunt",reason:"الفريق تحمّل وطأة الشكاوى = bear the brunt"},
+    {q:8,ans:"a",text:"rely",reason:"الاعتماد على الأصدقاء = rely on"},
+    {q:9,ans:"d",text:"is",reason:"Five hundred pounds = مبلغ واحد = is"},
+    {q:10,ans:"d",text:"couldn't",reason:"درجات منخفضة + couldn't have joined"},
+    {q:11,ans:"b",text:"doing",reason:"after + gerund = finishing doing their test"},
+    {q:12,ans:"b",text:"is an active and essential biological process vital for physical, mental, and emotional health",reason:"النوم عملية بيولوجية نشطة وأساسية"},
+    {q:13,ans:"b",text:"the stages and importance of sleep",reason:"الكاتب يناقش مراحل النوم وأهميته"},
+    {q:14,ans:"a",text:"Scientists suggest different reasons why people need sleep",reason:"الفقرة الثالثة: علماء مختلفون يقترحون أسباباً"},
+    {q:15,ans:"b",text:"Emotional and mental balance",reason:"النص: REM sleep supports learning and emotional balance"},
+    {q:16,ans:"c",text:"may experience sleep problems",reason:"الضوء الأزرق يؤخر الميلاتونين = مشاكل في النوم"},
+    {q:17,ans:"b",text:"may suffer from stress and poor focus",reason:"قلة النوم = ضغط نفسي وضعف التركيز"},
+    {q:18,ans:"d",text:"stress and modern life styles have negative effect on it",reason:"رغم أهميته, التوتر وأسلوب الحياة يؤثران عليه"},
+    {q:19,ans:"c",text:"It's a vital and biological need.",reason:"الكاتب يرى النوم ضرورة بيولوجية حيوية"},
+    {q:20,ans:"a",text:"learns to forgive herself and find peace through friendship and memory",reason:"مايا تعلمت التسامح مع نفسها"},
+    {q:21,ans:"c",text:"At the old bridge in Maya's hometown.",reason:"القصة جرت على الجسر القديم في مسقط رأسها"},
+    {q:22,ans:"d",text:"Maya faces her guilt and finds peace.",reason:"ملخص الفقرة الثالثة: مواجهة الذنب وإيجاد السلام"},
+    {q:23,ans:"b",text:"connection between past and present",reason:"الجسر يربط الماضي بالحاضر رمزياً"},
+    {q:24,ans:"b",text:"forgave herself and let go of guilt",reason:"ارتاحت = سامحت نفسها"},
+    {q:25,ans:"c",text:"live more meaningfully and appreciate life",reason:"قررت تكريم ذكرى هانا بالعيش بمعنى"},
+    {q:26,ans:"a",text:"herself",reason:"الصراع الداخلي: مايا ضد نفسها وذنبها"},
+    {q:27,ans:"d",text:"from guilt to inner peace",reason:"التحول: من الذنب إلى السلام الداخلي"},
+    {q:28,ans:"b",text:'He said to me, "When will you be ready for the journey to France?"',reason:"تحويل الكلام المنقول إلى مباشر: When will you be ready?"},
+    {q:29,ans:"d",text:"will have been fixed",reason:"Future perfect passive: will have been fixed"},
+    {q:30,ans:"c",text:"would have been",reason:"Third conditional: If he had worked harder, would have been..."},
+    {q:31,ans:"a",text:"I wouldn't work for ten hours a day.",reason:"wouldn't للنفي = عادة ماضية منفية"},
+    {q:32,ans:"c",text:"Having finished",reason:"Having finished = perfect participle لفعل سابق"},
+    {q:33,ans:"a",text:"got the maid",reason:"get + object + to infinitive = causative"},
+    {q:34,ans:"a",text:"had worked",reason:"wish + past perfect = تمنّي شيء لم يحدث"},
+    {q:35,ans:"b",text:"a catchy title",reason:"مدونة جيدة تحتاج عنواناً جذاباً"},
+    {q:36,ans:"a",text:"الترجمة أ",reason:"تعرف باسم غابات البحر المطيرة + لا يحصى + الأنظمة البيئية الهشة"},
+    {q:37,ans:"c",text:"الترجمة ج",reason:"جاهدة + النشاط الإنساني + الكوارث الطبيعية + يهدد حياتنا"},
+    {q:38,ans:"c",text:"الترجمة ج",reason:"become + buy and sell + saves time + creating a competitive field"},
+    {q:39,ans:"a",text:"الترجمة أ",reason:"symbol + contemporary architecture + Pharaonic spirit + innovative exhibitions"}
+  ],
+  7: [
+    {q:1,ans:"c",text:"restrictions",reason:"قيود على الاستيراد والتصدير = restrictions"},
+    {q:2,ans:"b",text:"compliment",reason:"إطراء صادق = compliment (مجاملة)"},
+    {q:3,ans:"a",text:"navigate",reason:"التنقل عبر الشعاب = navigate (يبحر)"},
+    {q:4,ans:"d",text:"confluence",reason:"التقاء النيل بالبحر = confluence (ملتقى)"},
+    {q:5,ans:"a",text:"weep with relief",reason:"الخبر السار + تبكي من الارتياح"},
+    {q:6,ans:"c",text:"drive",reason:"drive forward research = يدفع الأبحاث للأمام"},
+    {q:7,ans:"a",text:"enhance",reason:"تحسين دقة التجربة = enhance"},
+    {q:8,ans:"c",text:"the",reason:"Philippines = اسم جمع مع the"},
+    {q:9,ans:"a",text:"will be attending",reason:"Future continuous: سأكون في اجتماع"},
+    {q:10,ans:"a",text:"is maintained",reason:"النظام يُصان = passive present simple"},
+    {q:11,ans:"c",text:"had been offered",reason:"Third conditional passive: If I had been offered"},
+    {q:12,ans:"a",text:"The secret communication network of trees",reason:"شبكة التواصل السرية للأشجار"},
+    {q:13,ans:"b",text:"Trees send chemical alerts through their roots.",reason:"إشارات كيميائية عبر الجذور"},
+    {q:14,ans:"a",text:"Forests are complex ecosystems where trees share signals and resources",reason:"الغابات منظومات معقدة تتشارك الموارد"},
+    {q:15,ans:"b",text:"apply sensors and modeling to confirm exchanges",reason:"العلماء يستخدمون أجهزة الاستشعار والنمذجة"},
+    {q:16,ans:"d",text:"cooperate to survive and protect each other",reason:"الأشجار تتعاون للبقاء وحماية بعضها"},
+    {q:17,ans:"a",text:"use signals to share information efficiently",reason:"كلاهما يستخدم إشارات لتبادل المعلومات"},
+    {q:18,ans:"b",text:"act as a community focused on balance and care",reason:"الأشجار تعمل كمجتمع متوازن ومهتم"},
+    {q:19,ans:"a",text:"the balance of natural life will be severely damaged",reason:"تدمير الغابات = اختلال التوازن البيئي"},
+    {q:20,ans:"d",text:"A man's personal loss inspires him to rebuild both a bridge and his life",reason:"خسارة شخصية ألهمت إعادة بناء"},
+    {q:21,ans:"b",text:"memories of crossing the bridge as a child long ago",reason:"ذكريات طفولته ألهمته"},
+    {q:22,ans:"a",text:"saw the broken bridge as a reflection of his own life and began restoring it",reason:"رأى في الجسر انعكاساً لحاله فبدأ إصلاحه"},
+    {q:23,ans:"c",text:"clear stages showing teamwork, hope, and personal growth",reason:"القصة تتطور عبر مراحل: عمل جماعي وأمل ونمو"},
+    {q:24,ans:"a",text:"continue supporting projects that bring people together in his town",reason:"سيستمر في دعم المشاريع الجماعية"},
+    {q:25,ans:"d",text:"inspiring, showing that healing grows from kindness",reason:"نبرة ملهمة: الشفاء ينبع من التعاطف"},
+    {q:26,ans:"c",text:"hopeless and lost but later strong and connected",reason:"من يأس وضياع إلى قوة وتواصل"},
+    {q:27,ans:"a",text:"changed from despair and doubt to hope and gratitude",reason:"مشاعره من اليأس إلى الأمل والامتنان"},
+    {q:28,ans:"c",text:"could have eaten",reason:"could have eaten = احتمال ماضٍ"},
+    {q:29,ans:"a",text:"He said that I could solve my problems and asked if I would follow his advice.",reason:"كلام منقول: can→could, will→would, asked if"},
+    {q:30,ans:"b",text:"him tidy",reason:"had + object + bare infinitive = had him tidy"},
+    {q:31,ans:"c",text:"had laid",reason:"قبل وصول الضيوف = past perfect: had laid"},
+    {q:32,ans:"a",text:"will have been delivered",reason:"Future perfect passive: by next week"},
+    {q:33,ans:"c",text:"be",reason:"demand that + subject + base verb (subjunctive) = be"},
+    {q:34,ans:"a",text:"five-day",reason:"صفة مركبة قبل الاسم = five-day"},
+    {q:35,ans:"d",text:"argumentative",reason:"'On the contrary' + technology transformed = argumentative"},
+    {q:36,ans:"d",text:"الترجمة د",reason:"يعتقد الكثير + تحسين المعرفة + تعزيز الإبداع + التفكير النقدي"},
+    {q:37,ans:"a",text:"الترجمة أ",reason:"تنفذ + قوانين بيئية صارمة + التلوث + الموارد + التنوع البيولوجي"},
+    {q:38,ans:"c",text:"الترجمة ج",reason:"painting and music + children and youth + inner feelings + creativity"},
+    {q:39,ans:"a",text:"الترجمة أ",reason:"strives hard + national projects + develop infrastructure + job opportunities"}
+  ],
+  8: [
+    {q:1,ans:"c",text:"adjective",reason:"amphibious يصف السيارة = adjective (صفة)"},
+    {q:2,ans:"b",text:"predators",reason:"الأسود تصطاد = predators (مفترسات)"},
+    {q:3,ans:"a",text:"surplus",reason:"عكس shortage (نقص) = surplus (فائض)"},
+    {q:4,ans:"a",text:"mortifying",reason:"الوقوع أمام الناس محرج = mortifying"},
+    {q:5,ans:"c",text:"adaptations",reason:"تكيفات الجمل = adaptations"},
+    {q:6,ans:"b",text:"bear the brunt",reason:"تحمّل وطأة الشكاوى"},
+    {q:7,ans:"b",text:"reflect",reason:"التفكير في الاهتمامات = reflect on (يتأمل)"},
+    {q:8,ans:"a",text:"reach",reason:"reach a compromise = الوصول إلى حل وسط"},
+    {q:9,ans:"c",text:"be done",reason:"passive infinitive: must be done carefully"},
+    {q:10,ans:"b",text:"creative",reason:"تجربة إبداعية = creative"},
+    {q:11,ans:"a",text:"Because of",reason:"Because of + noun phrase"},
+    {q:12,ans:"a",text:"Excessive use of Facebook led the writer to neglect real friendships...",reason:"الإفرط في الفيسبوك يضر الصداقات الحقيقية"},
+    {q:13,ans:"b",text:"missed an important meeting because of Facebook",reason:"نسيان لقاء مخطط = نقطة التحول"},
+    {q:14,ans:"c",text:"chose to deactivate Facebook and return to offline communication",reason:"إلغاء تفعيل الفيسبوك والعودة للتواصل الفعلي"},
+    {q:15,ans:"b",text:"explaining how their usage increased and disrupted their real life",reason:"كيف زاد الاستخدام وأضر بالحياة الواقعية"},
+    {q:16,ans:"c",text:"felt unburdened and more in control of their life",reason:"بعد إلغاء التفعيل شعر بالحرية"},
+    {q:17,ans:"c",text:"relied too heavily on Facebook",reason:"اعتماد مفرط على الفيسبوك"},
+    {q:18,ans:"a",text:"It is meant to improve social life but can actually spoil it.",reason:"الشبكات لتحسين الحياة لكنها قد تدمرها"},
+    {q:19,ans:"a",text:"They aimed to test their ability to live without Facebook.",reason:"أراد معرفة إذا كان قادراً على العيش بدونه"},
+    {q:20,ans:"b",text:"Although Antarctica is extremely cold, it is Earth's largest desert because it gets very little precipitation.",reason:"أنتاركتيكا صحراء باردة لقلة الهطول"},
+    {q:21,ans:"c",text:"Less than two inches of snow.",reason:"النص: the central part gets fewer than two inches"},
+    {q:22,ans:"a",text:"Antarctica meets the definition of a desert as it receives very little precipitation.",reason:"تحقق تعريف الصحراء بقلة الهطول"},
+    {q:23,ans:"b",text:"explaining the low precipitation and cold air that holds little moisture",reason:"الهواء البارد لا يمسك الرطوبة = قلة الهطول"},
+    {q:24,ans:"b",text:"the air is too cold for evaporation",reason:"الهواء بارد جداً = لا تبخر = الثلج يبقى"},
+    {q:25,ans:"a",text:"the winds carry loose snow across the surface",reason:"الرياح تحمل الثلج الفضفاض وتبدو كعاصفة"},
+    {q:26,ans:"d",text:"is cold but still extremely dry",reason:"أنتاركتيكا باردة لكن جافة جداً"},
+    {q:27,ans:"d",text:"It is too cold to hold moisture, which limits precipitation.",reason:"البرودة تمنع الرطوبة وتحد الهطول"},
+    {q:28,ans:"a",text:"simple / to get",reason:"looked too simple → decided to get it redesigned"},
+    {q:29,ans:"d",text:"unclear / was",reason:"النتائج غير واضحة + data (مع was)"},
+    {q:30,ans:"b",text:"The team tested temperature, pressure, and density.",reason:"فاصلة بعد كل عنصر + and قبل الأخير"},
+    {q:31,ans:"d",text:"A new set of environmental regulations is implemented to reduce industrial waste.",reason:"A new set of = مفرد = is"},
+    {q:32,ans:"a",text:"was → were / rings → rang",reason:"students جمع = were، الحدث الماضي = rang"},
+    {q:33,ans:"a",text:"persuasive",reason:"إقناع القارئ = persuasive essay"},
+    {q:34,ans:"c",text:"To meet",reason:"To meet the publication deadline = purpose"},
+    {q:35,ans:"b",text:"inspired / taking",reason:"I was inspired + Heba's taking the initiative"},
+    {q:36,ans:"d",text:"الترجمة د",reason:"توجه القيم الجيدة قراراتنا + تشكل شخصيتنا + بناء علاقات قوية مبنية على الثقة"},
+    {q:37,ans:"d",text:"الترجمة د",reason:"يلهمنا الطموح + أهدافاً عليا + نتغلب العقبات + باستمرار + أحلامنا إلى إنجازات"},
+    {q:38,ans:"a",text:"الترجمة أ",reason:"most African countries + entered a new stage + development projects + benefits to everyone"},
+    {q:39,ans:"d",text:"الترجمة د",reason:"free from flaws + part of being human + each of us + focus on weaknesses"}
+  ],
+  9: [
+    {q:1,ans:"a",text:"flawless",reason:"أفكار خالية من العيوب = flawless (لا تشوبها شائبة)"},
+    {q:2,ans:"c",text:"compromise",reason:"كل طرف يتنازل للوصول للمنتصف = compromise"},
+    {q:3,ans:"d",text:"congested",reason:"مرادف packed (مكتظ) = congested (مزدحم)"},
+    {q:4,ans:"b",text:"literacy",reason:"الكفاءة الرقمية = digital literacy"},
+    {q:5,ans:"c",text:"neglectful",reason:"indifferent (غير مبالٍ) = neglectful (مهمل)"},
+    {q:6,ans:"a",text:"worth",reason:"السيارة تساوي ثروة = worth"},
+    {q:7,ans:"b",text:"go through thick and thin",reason:"المرور بالظروف الصعبة والسهلة معاً"},
+    {q:8,ans:"b",text:"put",reason:"put the project at risk = يعرض للخطر"},
+    {q:9,ans:"d",text:"time-saving",reason:"صفة مركبة = time-saving schedule"},
+    {q:10,ans:"b",text:"would do",reason:"wish + would = رجاء للمستقبل"},
+    {q:11,ans:"b",text:"hadn't fought",reason:"I'd rather he hadn't fought = ماضٍ"},
+    {q:12,ans:"c",text:"some people have seen flying objects and they are still a mystery",reason:"أجسام طائرة رآها الناس ولا تزال لغزاً"},
+    {q:13,ans:"b",text:"red",reason:"ثلثا الكائن كانا reddish = أحمر"},
+    {q:14,ans:"d",text:"are not sure of the reality of UFOs and explain many cases as natural or man-made causes",reason:"العلماء يفسرون 90% لكن 10% لا يمكن تفسيرها"},
+    {q:15,ans:"b",text:"question whether there are more developed living things in outer space",reason:"التساؤل عن حياة متطورة في الفضاء"},
+    {q:16,ans:"d",text:"wouldn't have asked for scientists' interpretation about them",reason:"لولا التقارير لم نطلب تفسيرات العلماء"},
+    {q:17,ans:"d",text:"continue monitoring the horizon for long",reason:"النص يلهمنا بمواصلة مراقبة الأفق"},
+    {q:18,ans:"c",text:"can move quickly, slowly and hover in circles",reason:"الـ UFO تتحرك بسرعة وببطء وترفرف في دوائر"},
+    {q:19,ans:"a",text:"factual",reason:"النص يعتمد على حقائق وتقارير = factual"},
+    {q:20,ans:"c",text:"Fareed found himself alone and helpless but medical help saved his brother",reason:"فريد وحيد لكن الفريق الطبي أنقذ أخاه"},
+    {q:21,ans:"b",text:"symptoms",reason:"الطبيب سأل عن الأعراض = symptoms"},
+    {q:22,ans:"c",text:"A doctor arrived, assessed symptoms and decided urgent surgery was needed",reason:"الطبيب فحص الأعراض وقرر الجراحة"},
+    {q:23,ans:"a",text:"worried and lonely to relieved and comforted",reason:"من القلق والوحدة إلى الارتياح والطمأنينة"},
+    {q:24,ans:"a",text:"Hady's condition could have become life-threatening",reason:"لولا سرعة الأطباء، الحالة كانت ستهدد الحياة"},
+    {q:25,ans:"b",text:"easier the doctors detect the disease",reason:"كلما كانت الأعراض أوضح، سهل التشخيص"},
+    {q:26,ans:"c",text:"tried to think of how to reach his parents",reason:"وحيد فحاول التفكير في كيفية الوصول لوالديه"},
+    {q:27,ans:"a",text:"devoted and collaborative",reason:"الفريق الطبي متفانٍ ومتعاون"},
+    {q:28,ans:"b",text:"Where",reason:"Where can you keep = سؤال غير مباشر"},
+    {q:29,ans:"a",text:"evacuated",reason:"Once evacuated = participial phrase passive"},
+    {q:30,ans:"c",text:"Can you tell me what your gloves are like?",reason:"Embedded question: what + subject + verb (are)"},
+    {q:31,ans:"c",text:"had had",reason:"Unless you had had = Third conditional"},
+    {q:32,ans:"b",text:"less",reason:"the narrower...the less furniture (غير معدود)"},
+    {q:33,ans:"a",text:"editing",reason:"go on + gerund = continued editing"},
+    {q:34,ans:"a",t
